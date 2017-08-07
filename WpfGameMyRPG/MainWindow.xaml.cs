@@ -23,20 +23,27 @@ namespace WpfGameMyRPG
     {
         private void ButtonStart_Click(Object sender, EventArgs e)
         {
-            LogInWindow logInWindow = new LogInWindow();
-            logInWindow.Owner = this;
+            LogInWindow logInWindow = new LogInWindow() { Owner = this };
+            Visibility = Visibility.Hidden;
             if (logInWindow.ShowDialog() == true)
             {
+                Visibility = Visibility.Visible;
                 MessageBox.Show("успешное нажатие");
             }
+            else Visibility = Visibility.Visible;
         }
+        private void ButtonClose_Click(Object sender, EventArgs e)
+        {
+            Application app = Application.Current;
+            app.Shutdown();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
             BitmapImage bgButton = new BitmapImage();
             try
             {
-                //LoadResourse();
                 //Фон окна
                 String pathBackground = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\Resourse\\Image\\Menu.png";
                 Background = new ImageBrush(new BitmapImage(new Uri(pathBackground, UriKind.Absolute)));
@@ -66,7 +73,7 @@ namespace WpfGameMyRPG
             };
             buttonStart.Click += ButtonStart_Click;
             MainMenu.Children.Add(buttonStart);
-            Button Loading = new Button
+            Button buttonLoading = new Button
             {
                 Width = 300,
                 Height = 40,
@@ -78,8 +85,8 @@ namespace WpfGameMyRPG
                 Background = new ImageBrush(bgButton),
                 Content = "Загрузить сохранённую игру"
             };
-            MainMenu.Children.Add(Loading);
-            Button Information = new Button
+            MainMenu.Children.Add(buttonLoading);
+            Button buttonInformation = new Button
             {
                 Width = 300,
                 Height = 40,
@@ -91,7 +98,21 @@ namespace WpfGameMyRPG
                 Background = new ImageBrush(bgButton),
                 Content = "Информация по игре"
             };
-            MainMenu.Children.Add(Information);
+            MainMenu.Children.Add(buttonInformation);
+            Button buttonClose = new Button
+            {
+                Width = 300,
+                Height = 40,
+                Margin = new Thickness(250.0, 510.0, 0, 0),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                FontSize = 14,
+                FontWeight = FontWeights.Bold,
+                Background = new ImageBrush(bgButton),
+                Content = "Выход"
+            };
+            buttonClose.Click += ButtonClose_Click;
+            MainMenu.Children.Add(buttonClose);
         }
     }
 }

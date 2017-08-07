@@ -19,7 +19,6 @@
     ResizeMode="NoResize"
     Topmost="True"
     WindowStartupLocation="CenterScreen"
-    WindowState="Minimized"
     mc:Ignorable="d">
     <Window.Background>
         <ImageBrush TileMode="Tile" />

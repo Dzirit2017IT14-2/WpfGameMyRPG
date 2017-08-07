@@ -8,6 +8,8 @@
     Title="Создание персонажа"
     Width="400"
     Height="300"
+    MaxWidth="400"
+    MaxHeight="300"
     HorizontalAlignment="Center"
     VerticalAlignment="Center"
     HorizontalContentAlignment="Center"
@@ -15,7 +17,6 @@
     ResizeMode="NoResize"
     Topmost="True"
     WindowStartupLocation="CenterOwner"
-    WindowState="Minimized"
     mc:Ignorable="d">
     <Grid Name="LogIn" />
 </Window>
