@@ -25,7 +25,6 @@ namespace WpfGameMyRPG
             BitmapImage bgButton = new BitmapImage();
             try
             {
-                //LoadResourse();
                 //Фон окна
                 String pathBackground = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\Resourse\\Image\\Login.png";
                 Background = new ImageBrush(new BitmapImage(new Uri(pathBackground, UriKind.Absolute)));

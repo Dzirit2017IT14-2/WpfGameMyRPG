@@ -32,7 +32,7 @@ namespace WpfGameMyRPG
             }
             else Visibility = Visibility.Visible;
         }
-        private void ButtonClose_Click(Object sender, EventArgs e)
+        private void ButtonExit_Click(Object sender, EventArgs e)
         {
             Application app = Application.Current;
             app.Shutdown();
@@ -58,7 +58,7 @@ namespace WpfGameMyRPG
             {
                 MessageBox.Show("Произошла ошибка загрузки:\n" + ex.Message, "Ошибка",  MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
+            //кнопка старт
             Button buttonStart = new Button
             {
                 Width = 300,
@@ -73,6 +73,7 @@ namespace WpfGameMyRPG
             };
             buttonStart.Click += ButtonStart_Click;
             MainMenu.Children.Add(buttonStart);
+            //кнопка загрузка игры
             Button buttonLoading = new Button
             {
                 Width = 300,
@@ -86,6 +87,7 @@ namespace WpfGameMyRPG
                 Content = "Загрузить сохранённую игру"
             };
             MainMenu.Children.Add(buttonLoading);
+            //кнопка информация по игре
             Button buttonInformation = new Button
             {
                 Width = 300,
@@ -99,7 +101,8 @@ namespace WpfGameMyRPG
                 Content = "Информация по игре"
             };
             MainMenu.Children.Add(buttonInformation);
-            Button buttonClose = new Button
+            //кнопка выход
+            Button buttonExit = new Button
             {
                 Width = 300,
                 Height = 40,
@@ -111,8 +114,8 @@ namespace WpfGameMyRPG
                 Background = new ImageBrush(bgButton),
                 Content = "Выход"
             };
-            buttonClose.Click += ButtonClose_Click;
-            MainMenu.Children.Add(buttonClose);
+            buttonExit.Click += ButtonExit_Click;
+            MainMenu.Children.Add(buttonExit);
         }
     }
 }
