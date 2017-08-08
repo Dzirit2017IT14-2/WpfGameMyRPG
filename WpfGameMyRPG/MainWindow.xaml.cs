@@ -34,8 +34,10 @@ namespace WpfGameMyRPG
         }
         private void ButtonExit_Click(Object sender, EventArgs e)
         {
-            Application app = Application.Current;
-            app.Shutdown();
+            TestRandomForm frm = new TestRandomForm();
+            frm.Show();
+            /*Application app = Application.Current;
+            app.Shutdown();*/
         }
 
         public MainWindow()
